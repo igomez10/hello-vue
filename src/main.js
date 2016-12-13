@@ -1,17 +1,20 @@
 import Vue from 'vue'
-import App from './App.vue'
-import Router from 'vue-router'
-import Filev from './fileViewer.vue'
-Vue.use(Router)
+import App from './app.vue'
+import VueRouter from 'vue-router'
+import FileViewer from './file-viewer.vue'
 
-const router=new Router(
+Vue.use(VueRouter);
+
+const router = new VueRouter(
   {
-    routes: [{ path: '/:career/:courseCode', component: Filev  }]
+    routes: [
+      { path: '/:career/:courseCode', component: FileViewer  }
+    ]
   }
 );
 
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 });
-console.log("running");
