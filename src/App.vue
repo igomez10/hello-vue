@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <tabla></tabla>
-    <router-view></router-view>
     <p>HOLA</p>
   </div>
 </template>
