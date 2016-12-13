@@ -23,7 +23,7 @@
   </template>
 
   <script>
-  import fsapi from './client'
+  import fsapi from '../lib/fsapi-client'
   import file from "./file.vue"
   export default{
     name:"fileViewer",

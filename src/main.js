@@ -1,17 +1,11 @@
-import Vue from 'vue'
-import App from './app.vue'
-import VueRouter from 'vue-router'
-import FileViewer from './file-viewer.vue'
+import Vue from 'vue';
+import routes from './routes';
+import App from './components/app.vue';
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const router = new VueRouter(
-  {
-    routes: [
-      { path: '/:career/:courseCode', component: FileViewer  }
-    ]
-  }
-);
+const router = new VueRouter( { routes } );
 
 new Vue({
   el: '#app',
