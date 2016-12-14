@@ -23,11 +23,12 @@
   </template>
 
   <script>
-  import fsapi from '../lib/fsapi-client'
+  import fsapi from '../lib/fsapi-client.js'
+  fsapi.config("http://localhost:8080","12345")
   import file from "./file.vue"
   export default{
     name:"fileViewer",
-    components:{file},
+    components:{file, fsapi},
     data: function(){
       return {
         filesToUpload:'',
@@ -47,7 +48,7 @@
       this.getFiles()
     },
     watch:{
-      courseCode : function(){
+      $route : function(){
         this.getFiles()
         console.log("cambio la ruta")
       }
@@ -61,13 +62,14 @@
         this.fileName=this.filesToUpload.name;
         this.fileSize=this.filesToUpload.size;
         this.fileType=this.filesToUpload.type;
-        console.log("File to upload: Name: " + this.fileName +", Size: "+ this.fileSize + ", Type: "+ this.fileType);
+        let ladata=this.filesToUpload.value
+        console.log("File to upload: Name: " + this.fileName +", Size: "+ this.fileSize + ", Type: "+ this.fileType + ladata);
       },
       getFiles:function()
       {
         //courseUrl start from the career folder. not from files
         const x=function(y,z){console.log(y,z)}
-        const theUrl = this.career + "/" + this.courseCode
+        const theUrl =this.career + "/" + this.courseCode
 
         const filePromise= new Promise( (resolve, reject)=>{
           fsapi.list( theUrl , (res)=>{

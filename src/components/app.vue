@@ -8,7 +8,7 @@
       a través de una ruta? El index tb es una ruta! Ejemplo:
           { path: '/', component: Tabla  },
     -->
-    <router-view></router-view>
+    <router-view :career="$route.params.career" :courseCode="$route.params.courseCode"></router-view>
   </div>
 </template>
 
